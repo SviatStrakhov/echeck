@@ -1,0 +1,39 @@
+{% extends 'cashier/base.html' %}
+{% block meta_title %}Cashier{% endblock meta_title %}
+{% block title %}{{ date }}{% endblock title %}
+
+
+{% block content %}
+
+
+
+<button type="button" class="btn btn-warning">Delete out of order</button>
+
+<button type="button" class="btn btn-danger">Cancel order</button>
+
+<button type="button" class="btn btn-success">Order</button>
+
+
+
+			<table class="table table-hover table-striped">
+            	<thead>
+					<tr>
+						<th><a href="#">№</a> </th>
+						<th><a href="#">Dish</a></th>
+						<th><a href="#">Quantity</a></th>
+						<th><a href="#">Add</a> </th>
+              		</tr>
+            	</thead>
+            	<tbody>
+            		{% for dish in dishes %}
+            		<tr>
+	            		<td>{{ forloop.counter }}</td> 
+	            		<td><a title="" href="#">{{ dish.dish }}</td> 
+	            		<td><a title="" href="#">{{ dish.quantity }}</td>
+	            		<td><a title="" href="{% url 'add_dish_to_order' dish.id %}"><button type="button" class="btn btn-primary">{{dish.id}}</button></a></td>
+					{% endfor %}
+            	</tbody>
+            </table>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'echeck/base.html' %}
+{% block meta_title %}Cashier{% endblock meta_title %}
+{% block title %}Cashier{% endblock title %}
+
+
+{% block menu %}
+
+<table class="table table-hover table-striped">
+            	<thead>
+					<tr>
+						<th><a href="#">№</a> </th>
+						<th><a href="#">Dish</a></th>
+						<th><a href="#">Quantity</a></th>
+              		</tr>
+            	</thead>
+            	<tbody>
+            		{% for dish in dishes %}
+            		<tr>
+	            		<td>{{ forloop.counter }}</td> 
+	            		<td><a title="" href="#">{{ dish.name }}</td> 
+	            		<td><a title="" href="#">{{ dish.quantity }}</td>
+					{% endfor %}
+            	</tbody>
+            </table>
+
+{% block menu %}
