@@ -24,21 +24,8 @@ class OrderCompositionInline (admin.TabularInline):
 
 class OrderAdmin (admin.ModelAdmin):
 	inlines = (OrderCompositionInline, )
-'''
-class MenuInline (admin.TabularInline):
-   model = Menu
- 
-class MenuAdmin (admin.ModelAdmin):
-   inlines = [ MenuInline ]
-'''
- 
-#class MenuCompositionInline (admin.TabularInline):
-#model = MenuComposition
- 
- 
-#class MenuCompositionAdmin (admin.ModelAdmin):
-#    inlines = (MenuCompositionInline)
- 
+
+
 
 # Register your models here.
 admin.site.register(Dish)

@@ -16,14 +16,16 @@ Including another URLconf
 from django.conf.urls import include ,url
 from django.contrib import admin
 from cashier.views import HomeView, CashierView
+from storage.views import StorageView
 
 
 urlpatterns = [
 
 
 	#e_check urls
-    url(r'^$', HomeView.as_view(), name = 'home'),
-    url(r'^cashier/$', CashierView.as_view(), name = 'cashier'),
+    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^cashier/$', CashierView.as_view(), name='cashier'),
+    url(r'^storage/$', StorageView.as_view(), name='storage'),
 	#url(r'^cashier/$', cashier, name = 'cashier'),
     #url(r'^cashier/add_to_order/(?P<dish_id>\d+)/$', add_dish_to_order, name = 'add_dish_to_order'),
 

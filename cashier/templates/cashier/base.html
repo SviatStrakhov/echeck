@@ -19,7 +19,7 @@
 	
 			<!-- Logo -->
 			<div class="col-xs-8">
-				<h1>EasyCheck</h1>
+				<a href="{% url 'home'%}"><h1>EasyCheck</h1></a>
 			</div>
 		</div>
 
@@ -27,7 +27,7 @@
 		<div class="row" id="sub-header"> 
 			<div class="col-xs-12">
 				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation"><a href="#">Storage</a></li>
+					<li role="presentation"><a href="{% url 'storage' %}">Storage</a></li>
 					<li role="presentation"><a href="{% url 'cashier' %}" class="active">Cashier</a></li>
 					<li role="presentation" ><a href="#">Kitchen</a></li>
 					<li role="presentation" ><a href="{% url 'admin:index' %}">ADMIN</a></li>
@@ -46,8 +46,8 @@
         	</div>
         	<div class="col-xs-6" id="content-column"> 
 				
-				<h2>order_number{% block order_title %}{% endblock order_title %}</h2>
-				{% block order %}{% endblock order %}
+			<!--<h2>order_number{% block order_title %}{% endblock order_title %}</h2>
+				{% block order %}{% endblock order %}-->
 				
         	</div>
       	</div>

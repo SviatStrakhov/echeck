@@ -14,8 +14,7 @@ class HomeView(TemplateView):
 class CashierView(ListView):
 
 	template_name = 'cashier/cashier.html'
-	#date = datetime.today().strftime('%Y-%m-%d')
-	#queryset = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=date))
+	queryset = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=datetime.today().strftime('%Y-%m-%d')))
 
 '''
 def home(request):
