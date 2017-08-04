@@ -3,17 +3,35 @@ from django.http import HttpResponse
 from .models import Menu, MenuComposition, Dish, OrderComposition, Order
 from datetime import datetime
 from django.urls import reverse
+from django.views.generic import TemplateView, ListView
 # Create your views here.
 
-def cashier(request, order_id=None):
+class HomeView(TemplateView):
+
+	template_name = 'cashier/base.html'
+
+
+class CashierView(ListView):
+
+	template_name = 'cashier/cashier.html'
+	#date = datetime.today().strftime('%Y-%m-%d')
+	#queryset = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=date))
+
+'''
+def home(request):
+	return render(request, 'cashier/base.html')
+
+def cashier(request):
 	date = datetime.today().strftime('%Y-%m-%d')
 	dishes = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=date))
-	if order_id:
-		order = get_object_or_404(Order, id=order_id)
-	else:
-		order = {}
+	#if order_id:
+	#	order = get_object_or_404(Order, id=order_id)
+	#else:
+	#	order = {}
 	return render(request, 'cashier/cashier.html', {'dishes':dishes, 'date':date})
 
+
+	, order_id=None
 def add_dish_to_order(request, dish_id):
 	dish = get_object_or_404(Dish, id=dish_id)
 
@@ -25,3 +43,4 @@ def add_dish_to_order(request, dish_id):
 	next_page = request.GET.get('next', reverse('cashier', kwargs={'order_id': order.id}))
 
 	return redirect(next_page)
+'''
