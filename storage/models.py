@@ -55,7 +55,7 @@ class Repository(models.Model):
 		verbose_name_plural = 'Repository'
 
 
-	product = models.ForeignKey(Product,
+	title = models.ForeignKey(Product,
 		blank=True,
 		null=True,
 		on_delete=models.SET_NULL)
@@ -67,4 +67,4 @@ class Repository(models.Model):
         verbose_name='balance')
 
 	def __str__(self):
-		return f'{self.product}'
+ 		return f'{self.title}'

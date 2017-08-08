@@ -8,7 +8,7 @@
 
 
 
-<button type="button" class="btn btn-primary">Add</button>
+<a href="{% url 'add_product' %}"><button type="button" class="btn btn-primary">Add</button></a>
 
 
 
@@ -18,7 +18,7 @@
 					<tr>
 						<th><a href="#">№</a> </th>
 						<th><a href="#">Product</a></th>
-						<th><a href="#">Quantity</a></th>
+						<th><a href="#">Balance</a></th>
 						<th><a href="#">GiveToKitch</a></th>
 						<th><a href="#">RefillToRepository</a></th>
               		</tr>
@@ -27,10 +27,10 @@
             		{% for product in object_list %}
             		<tr>
 	            		<td>{{ forloop.counter }}</td> 
-	            		<td><a title="" href="#">{{ product.product }}</td> 
+	            		<td><a title="" href="#">{{ product.title }}</td> 
 	            		<td><a title="" href="#">{{ product.balance }}</td>
 	            		<td><a title="" href="#"><button type="button" class="btn btn-danger">GiveToKitchen</button></a></td>
-	            		<td><a title="" href="#"><button type="button" class="btn btn-success">Refill</button></a></td>
+	            		<td><a title="" href="{% url 'add_to_repository' product.id %}"><button type="button" class="btn btn-success">Refill</button></a></td>
 					{% endfor %}
             	</tbody>
             </table>
