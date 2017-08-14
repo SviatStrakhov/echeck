@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import TemplateView, ListView
@@ -19,6 +19,19 @@ class ProductCreate(CreateView):
 	template_name = 'storage/add_product.html'
 	fields = ['title', 'cost', 'unit', 'category']
 	success_url = '/storage'
+
+	# def form_valid(self, form):
+	# 	errors = {}
+	# 	data = Product.objects.all()
+	# 	title = request.POST.get('title').strip()
+	# 	if title in data:
+	# 		errors['title'] = 'Product already exist!'
+	# 	if not errors:
+	# 		form.save()
+	# 		return redirect(self.get_success_url())
+
+
+
 
 
 class RefillToRepository(UpdateView):

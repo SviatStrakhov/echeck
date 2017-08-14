@@ -16,7 +16,6 @@ class CategoryProduct(models.Model):
 		return f'{self.title}'
 
 
-
 class Product(models.Model):
 
 	class Meta(object):
@@ -26,7 +25,8 @@ class Product(models.Model):
 	title = models.CharField(
         max_length=256,
         blank=False,
-        verbose_name='title')
+        verbose_name='title',
+        unique=True)
 
 	cost = models.DecimalField(
 		blank=False,

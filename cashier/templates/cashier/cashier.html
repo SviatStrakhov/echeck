@@ -6,6 +6,7 @@
 {% block content %}
 
 
+            {% if not object_list.error %}
 
 <button type="button" class="btn btn-warning">Delete out of order</button>
 
@@ -14,8 +15,8 @@
 <button type="button" class="btn btn-success">Order</button>
 
 
-
 			<table class="table table-hover table-striped">
+
             	<thead>
 					<tr>
 						<th><a href="#">№</a> </th>
@@ -34,6 +35,12 @@
 					{% endfor %}
             	</tbody>
             </table>
+            {% else %}
+				<h2>Add menu for today!!!!</h2>
+				{% for p in object_list %}
+				<h2>{{ p }}</h2>
+				{% endfor %}
+			{% endif %}
 
 
 {% endblock content %}
