@@ -19,12 +19,9 @@ class CashierView(ListView, RedirectView):
     try:
         queryset = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=datetime.today().strftime('%Y-%m-%d')))
     except ObjectDoesNotExist:
-        queryset = {'error': 'NO MENU FOR TUDEY!'}
-
-		
+        queryset = {'error': 'NO MENU FOR TODAY!'}
 
 
-# 
 # def home(request):
 # 	return render(request, 'cashier/base.html')
 

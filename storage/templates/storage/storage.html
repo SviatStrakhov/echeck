@@ -9,7 +9,7 @@
 
 
 <a href="{% url 'add_product' %}"><button type="button" class="btn btn-primary">Add Product</button></a>
-<a href="{% url 'add_product' %}"><button type="button" class="btn btn-primary">Add to Repository</button></a>
+<a href="{% url 'add_to_repository' %}"><button type="button" class="btn btn-primary">Add to Repository</button></a>
 
 
 
@@ -31,7 +31,7 @@
 	            		<td><a title="" href="#">{{ product.title }}</td> 
 	            		<td><a title="" href="#">{{ product.balance }}</td>
 	            		<td><a title="" href="#"><button type="button" class="btn btn-danger">GiveToKitchen</button></a></td>
-	            		<td><a title="" href="{% url 'add_to_repository' product.id %}"><button type="button" class="btn btn-success">Refill</button></a></td>
+	            		<td><a title="" href="{% url 'refill_to_repository' product.id %}"><button type="button" class="btn btn-success">Refill</button></a></td>
 					{% endfor %}
             	</tbody>
             </table>

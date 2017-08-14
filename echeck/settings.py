@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'storage',
     'cashier',
     'kitchen',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

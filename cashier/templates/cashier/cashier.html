@@ -5,8 +5,7 @@
 
 {% block content %}
 
-
-            {% if not object_list.error %}
+{% if not object_list.error %}
 
 <button type="button" class="btn btn-warning">Delete out of order</button>
 
@@ -41,6 +40,5 @@
 				<h2>{{ p }}</h2>
 				{% endfor %}
 			{% endif %}
-
 
 {% endblock content %}

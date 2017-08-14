@@ -9,40 +9,39 @@ from .forms import ProductForm, RepositoryForm
 
 class StorageView(ListView):
 
-	 template_name = 'storage/storage.html'
-	 queryset = Repository.objects.all()
-
+    template_name = 'storage/storage.html'
+    queryset = Repository.objects.all()
 
 
 class ProductCreate(CreateView):
-	model = Product
-	template_name = 'storage/add_product.html'
-	fields = ['title', 'cost', 'unit', 'category']
-	success_url = '/storage'
+    model = Product
+    template_name = 'storage/add_product.html'
+    fields = ['title', 'cost', 'unit', 'category']
+    success_url = '/storage'
 
-	# def form_valid(self, form):
-	# 	errors = {}
-	# 	data = Product.objects.all()
-	# 	title = request.POST.get('title').strip()
-	# 	if title in data:
-	# 		errors['title'] = 'Product already exist!'
-	# 	if not errors:
-	# 		form.save()
-	# 		return redirect(self.get_success_url())
+# def form_valid(self, form):
+# 	errors = {}
+# 	data = Product.objects.all()
+# 	title = request.POST.get('title').strip()
+# 	if title in data:
+# 		errors['title'] = 'Product already exist!'
+# 	if not errors:
+# 		form.save()
+# 		return redirect(self.get_success_url())
 
 
-
+class AddToRepository(CreateView):
+    model = Repository
+    template_name = 'storage/add_to_repository.html'
+    fields = ['title', 'balance']
+    success_url = '/storage'
 
 
 class RefillToRepository(UpdateView):
-	model = Repository
-	template_name = 'storage/add_to_repository.html'
-	fields = ['title', 'balance']
-	success_url = '/storage'
-
-
-
-
+    model = Repository
+    template_name = 'storage/refill_to_repository.html'
+    fields = ['title', 'balance']
+    success_url = '/storage'
 
 # def add_product(request):
 
@@ -69,4 +68,4 @@ class RefillToRepository(UpdateView):
 
 # 	else:
 # 		form = RepositoryForm()
-# 	return render(request, 'storage/add_to_repository.html', {'form': form})
+# 	return render(request, 'storage/refill_to_repository.html', {'form': form})

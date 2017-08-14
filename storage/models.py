@@ -3,68 +3,68 @@ from django.db import models
 
 class CategoryProduct(models.Model):
 
-	class Meta(object):
-		verbose_name = 'Category'
-		verbose_name_plural = 'Category'
+    class Meta(object):
+        verbose_name = 'Category'
+        verbose_name_plural = 'Category'
 
-	title = models.CharField(
+    title = models.CharField(
         max_length=256,
         blank=False,
         verbose_name='title')
 
-	def __str__(self):
-		return f'{self.title}'
+    def __str__(self):
+        return f'{self.title}'
 
 
 class Product(models.Model):
 
-	class Meta(object):
-		verbose_name = 'Product'
-		verbose_name_plural = 'Products'
+    class Meta(object):
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
-	title = models.CharField(
+    title = models.CharField(
         max_length=256,
         blank=False,
         verbose_name='title',
         unique=True)
 
-	cost = models.DecimalField(
-		blank=False,
-		max_digits=6,
+    cost = models.DecimalField(
+        blank=False,
+        max_digits=6,
         decimal_places=2,
         verbose_name='cost')
 
-	unit = models.CharField(
-		max_length=256,
-    	blank=False,
-    	verbose_name='unit')
+    unit = models.CharField(
+        max_length=256,
+        blank=False,
+        verbose_name='unit')
 
-	category = models.ForeignKey(CategoryProduct,
-    	blank=True,
-    	null=True,
-    	on_delete=models.SET_NULL)
+    category = models.ForeignKey(CategoryProduct,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL)
 
-	def __str__(self):
-		return f'{self.title}'
+    def __str__(self):
+        return f'{self.title}'
 
 
 class Repository(models.Model):
 
-	class Meta(object):
-		verbose_name = 'Repository'
-		verbose_name_plural = 'Repository'
+    class Meta(object):
+        verbose_name = 'Repository'
+        verbose_name_plural = 'Repository'
 
+    title = models.ForeignKey(Product,
+        blank=True,
+        null=True,
+        unique=True,
+        on_delete=models.SET_NULL)
 
-	title = models.ForeignKey(Product,
-		blank=True,
-		null=True,
-		on_delete=models.SET_NULL)
-
-	balance = models.DecimalField(
-		blank=False,
-		max_digits=6,
+    balance = models.DecimalField(
+        blank=False,
+        max_digits=6,
         decimal_places=2,
         verbose_name='balance')
 
-	def __str__(self):
- 		return f'{self.title}'
+    def __str__(self):
+        return f'{self.title}'

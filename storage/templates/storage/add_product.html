@@ -1,16 +1,16 @@
 {% extends 'cashier/base.html' %}
 {% block meta_title %}add_product{% endblock meta_title %}
 {% block title %}Add Product{% endblock title %}
+{% load bootstrap %}
 
 
 {% block content %}
 
-<form action="#" method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Submit"/>
-</form>
-
-
-
+<div class="col-xs-5" id="content-column">
+	<form action="#" method="post">
+		{% csrf_token %}
+		{{ form|bootstrap }}
+		<input type="submit" value="Submit" class="btn btn-primary"/>
+	</form>
+</div>
 {% endblock content %}
