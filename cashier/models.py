@@ -18,11 +18,9 @@ class CategoryDish (models.Model):
     def __str__(self):
         return f'{self.title}'
  
- 
- 
+
 class Dish (models.Model):
- 
- 
+
     class Meta(object):
         verbose_name = 'Dish'
         verbose_name_plural = 'Dish'
@@ -48,23 +46,17 @@ class Dish (models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL)
- 
- 
- 
- 
+
     def __str__(self):
         return '{}'.format(self.title)
  
- 
- 
+
 class MenuComposition (models.Model):
- 
- 
+
     class Meta(object):
         verbose_name = 'MenuComposition'
         verbose_name_plural = 'MenuComposition'
- 
- 
+
     dish = models.ForeignKey(Dish,
         blank=True,
         null=True,
@@ -83,18 +75,14 @@ class MenuComposition (models.Model):
  
  
 class Menu (models.Model):
- 
- 
+
     class Meta(object):
         verbose_name = 'Menu'
         verbose_name_plural = 'Menu'
- 
- 
- 
+
     date = models.DateField(
         blank=True)
- 
- 
+
     def __str__(self):
         return '{}'.format(self.date)
  
@@ -104,17 +92,15 @@ class Order (models.Model):
     class Meta(object):
         verbose_name = 'Order'
         verbose_name_plural = 'Order'
-        
 
     date = models.DateTimeField(
         auto_now_add=True,
         blank=True,
         null=True)
 
-    
- 
- 
- 
+    is_active = models.BooleanField(
+        default=True)
+
     def __str__(self):
         return '{}'.format(self.date)
 

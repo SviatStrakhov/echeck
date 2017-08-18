@@ -17,9 +17,21 @@ class CashierView(ListView, RedirectView):
 
     template_name = 'cashier/cashier.html'
     try:
-        queryset = MenuComposition.objects.all().filter(menu_id=Menu.objects.get(date=datetime.today().strftime('%Y-%m-%d')))
+        queryset = MenuComposition.objects.filter(menu_id=Menu.objects.get(date=datetime.today().strftime('%Y-%m-%d')))
     except ObjectDoesNotExist:
         queryset = {'error': 'NO MENU FOR TODAY!'}
+
+
+def add_to_order(request, dish_id):
+
+    dish = get_object_or_404(Dish, id=dish_id)
+    order = Order.objects.create(date=datetime.now())
+    order_comp = OrderComposition.objects.create(dish=dish, order=order, quantity=1)
+    object_list = MenuComposition.objects.filter(menu_id=Menu.objects.get(date=datetime.today().strftime('%Y-%m-%d')))
+    order_list = OrderComposition.objects.filter(order=order.id)
+    return render(request, 'cashier/cashier.html',
+                  {'object_list': object_list,
+                   'order_list': order_list})
 
 
 # def home(request):

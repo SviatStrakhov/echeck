@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include ,url
 from django.contrib import admin
-from cashier.views import HomeView, CashierView
+from cashier.views import HomeView, CashierView, add_to_order
 from storage.views import StorageView, ProductCreate, RefillToRepository, AddToRepository
 
 
@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^storage/refill_to_repository/(?P<pk>\d+)/$', RefillToRepository.as_view(), name='refill_to_repository'),
     url(r'^storage/add_to_repository/$', AddToRepository.as_view(), name='add_to_repository'),
 	#url(r'^cashier/$', cashier, name = 'cashier'),
-    #url(r'^cashier/add_to_order/(?P<dish_id>\d+)/$', add_dish_to_order, name = 'add_dish_to_order'),
+    url(r'^cashier/(?P<dish_id>\d+)/$', add_to_order, name = 'add_dish_to_order'),
 
 
     

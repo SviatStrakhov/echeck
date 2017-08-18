@@ -54,10 +54,9 @@ class Repository(models.Model):
         verbose_name = 'Repository'
         verbose_name_plural = 'Repository'
 
-    title = models.ForeignKey(Product,
+    title = models.OneToOneField(Product,
         blank=True,
         null=True,
-        unique=True,
         on_delete=models.SET_NULL)
 
     balance = models.DecimalField(
